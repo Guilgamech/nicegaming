@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{%block namePage%}Nice Gaming{%endblock namePage%}</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/owl.theme.default.min.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'font/icomoon/style.css' %}">
+    <link
+      href="{% static 'font/fontawesome-free/css/all.min.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="{% static 'css/bootstrap.min.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="{% static 'css/styles.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/bootstrap-datetimepicker.min.css' %}"
+    />
+  </head>
+  <body>
+    <nav
+      class="
+        navbar navbar-expand-lg navbar-light
+        bg-white
+        border-bottom
+        shadow-sm
+      "
+    >
+      <div class="container">
+        <a class="navbar-brand" href="/">Nice Gaming</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navMenu"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-toggle="dropdown"
+                data-target="#vehiculosDropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Categorias
+              </a>
+              <div
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdown"
+                id="vehiculosDropdown"
+              >
+                <a class="dropdown-item" href="{% url 'gaming' %}">Gaming</a>
+                <a class="dropdown-item" href="{% url 'twitch' %}">Twitch</a>
+                <a class="dropdown-item" href="{% url 'esport' %}">E-Sports</a>
+                <a class="dropdown-item" href="{% url 'international' %}">Internotional</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'formContact' %}">Contactanos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% block header %} {% endblock %}
+    <div class="container">
+      {% block contenido %} {% endblock %}
+    </div>
+      <footer class="pt-4 mt-5  border-top">
+        <div class="site-footer">
+          <div class="container">
+            <div class="row mb-5">
+              <div class="col-md-4">
+                <h3 class="footer-heading mb-4">Nosotros</h3>
+                <p>{{ informacion.us}}</p>
+              </div>
+              <div class="col-md-3 ml-auto">
+                <h3 class="footer-heading mb-4">Menú Rápido</h3>
+                <ul class="list-unstyled float-left">
+                  <li><a href="{% url 'gaming' %}">Gaming</a></li>
+                  <li><a href="{% url 'twitch' %}">Twitch</a></li>
+                  <li><a href="{% url 'esport' %}">E-Sports</a></li>
+                  <li><a href="{% url 'international' %}">Internotional</a></li>
+                  <li><a href=" {% url 'formContact' %} ">Contactanos</a></li>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <div class="mb-5">
+                  <h3 class="footer-heading mb-4">SUSCRÍBETE</h3>
+                  <form action=" {% url 'suscribirse' %} " method="post" class="form-footer-subscribe">
+                    {% csrf_token %}
+                    <div class="form-group d-flex">
+                      <input type="text" class="form-control" name="correo" />
+                      <button type="submit" class="btn btn-primary text-white">
+                        SUSCRIBIRSE
+                      </button>
+                    </div>
+                  </form>
+                </div>
+
+                <div>
+                  <h3 class="footer-heading mb-4">Contáctanos</h3>
+                  <p>
+                    <a href="{{socialLinks.facebook}}" target="_blank"
+                      ><span class=" icon-facebook pt-2 pr-2 pb-2 pl-0"></span
+                    ></a>
+                    <a href="{{socialLinks.Twitter}}" target="_blank"
+                      ><span class="icon-twitter p-2"></span
+                    ></a>
+                    <a href="{{socialLinks.Linkendin}}" target="_blank"
+                      ><span class="icon-linkedin p-2"></span
+                    ></a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 text-center">
+                <p>
+                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                  José Manuel Sánchez Rodríguez &copy;
+                  <script>
+                    document.write(new Date().getFullYear());
+                  </script>
+                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+    <script
+      type="text/javascript"
+      src="{% static 'js/moment.min.js' %}"
+    ></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script
+      type="text/javascript"
+      src="{% static 'js/bootstrap-datetimepicker.min.js' %}"
+    ></script>
+    <script id="dsq-count-scr" src="{% static '//nice-gaming.disqus.com/count.js' %}" async></script>
+    <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.js' %}"></script>
+    <script src="{% static 'js/slick.min.js' %}"></script>
+  </body>
+</html>

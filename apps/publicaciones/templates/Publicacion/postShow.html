@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+
+{% comment %} Titulo de la pagina dependiendo de la publicacion {% endcomment %}
+{% block namePage %} 
+{{ postShow.titulo |upper }} | Nice Gaming
+{% endblock namePage %}
+
+{% block contenido %}
+<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url({{ postShow.imagen_refer.url }});">
+    <div class="container">
+      <div class="row same-height justify-content-center">
+        <div class="col-md-12 col-lg-10">
+          <div class="post-entry text-center">
+            <span class="post-category text-white bg-success mb-3">{{ postShow.Categoria }}</span>
+            <h1 class="mb-4"><a href="{% url 'detallePost' postShow.id  %}">{{ postShow.titulo |upper }}</a></h1>
+            <div class="post-meta align-items-center text-center">
+              <span class="d-inline-block mt-1">{{ postShow.autor }}</span>
+              <span>{{ postShow.fecha_publicacion }}</span>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+
+  <section class="site-section py-lg">
+    <div class="container">
+
+      <div class="row blog-entries element-animate">
+
+        <div class="col-md-12 col-lg-8 main-content">
+
+          <div class="post-content-body">
+            {{ postShow.contenido |safe }}
+          </div>
+        </div>
+
+        <!-- END main-content -->
+
+        <div class="col-md-12 col-lg-4 sidebar">
+          <!-- END sidebar-box -->
+          <div class="sidebar-box">
+            <div class="bio text-center">
+              <div class="bio-body">
+                <h2>{{ postShow.autor }}</h2>
+                <p class="mb-4">{{postShow.autor.descripcion}}</p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="mb-5">OTROS POST</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-4">
+          <div class="entry2 mb-5">
+            <a href="{% url 'detallePost' post1.id  %}"><img src="{{ post1.imagen_refer.url }}" alt="Image" class="img-fluid rounded"></a>
+            <span class="post-category text-white bg-primary mb-3">{{ post1.Categoria }}</span>
+            <h2><a href="{% url 'detallePost' post1.id  %}">{{ post1.titulo }}</a></h2>
+            <div class="post-meta align-items-center text-left clearfix">
+              <span class="d-inline-block mt-1">POR <a href="#">{{ post1.autor }}</a></span>
+              <span>{{ post1.fecha_publicacion }}</span>
+            </div>
+            <p>{{ post1.descripcion }}</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="entry2 mb-5">
+            <a href="{% url 'detallePost' post2.id  %}"><img src="{{ post2.imagen_refer.url }}" alt="Image" class="img-fluid rounded"></a>
+            <span class="post-category text-white bg-primary mb-3">{{ post2.Categoria }}</span>
+            <h2><a href="{% url 'detallePost' post2.id  %}">{{ post2.titulo }}</a></h2>
+            <div class="post-meta align-items-center text-left clearfix">
+              <span class="d-inline-block mt-1">POR <a href="#">{{ post2.autor }}</a></span>
+              <span>{{ post2.fecha_publicacion }}</span>
+            </div>
+            <p>{{ post2.descripcion }}</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="entry2 mb-5">
+            <a href="{% url 'detallePost' post3.id  %}"><img src="{{ post3.imagen_refer.url }}" alt="Image" class="img-fluid rounded"></a>
+            <span class="post-category text-white bg-primary mb-3">{{ post3.categoria }}</span>
+            <h2><a href="{% url 'detallePost' post3.id  %}">{{ post3.titulo }}</a></h2>
+            <div class="post-meta align-items-center text-left clearfix">
+              <figure class="author-figure mb-0 mr-3 float-left"><img src="{{ post3.autor.imagen_referencial.url }}" alt="Image" class="img-fluid"></figure>
+              <span class="d-inline-block mt-1">POR <a href="#">{{ post3.autor }}</a></span>
+              <span>{{ post3.fecha_publicacion }}</span>
+            </div>
+            <p>{{ post3.descripcion }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://nice-gaming.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+ 
+</div>
+
+{% endblock %}

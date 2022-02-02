@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block namePage %} 
+Contacto | Nice Gaming
+{% endblock namePage %}
+
+{% block contenido %}
+
+{% load static %}
+<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url( {% static '/img/descarga.jpg' %});">
+    <div class="container">
+      <div class="row same-height justify-content-center">
+        <div class="col-md-12 col-lg-10">
+          <div class="post-entry text-center">
+            <h1 class="mb-4">CONTACTO</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 mb-5">
+          <form method="post" class="p-5 bg-white" action=" {% url 'msgcontact' %} "> 
+            {% csrf_token %}
+
+            {{form}}
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-primary py-2 px-4 text-white">ENVIAR </button>
+              </div>
+            </div>
+
+          </form>
+          {{message}}
+        </div>
+        <div class="col-md-5">
+
+          <div class="p-4 mb-3 bg-white">
+            <p class="mb-0 font-weight-bold">Direccion</p>
+            <p class="mb-4">{{ informacion.direccion }}</p>
+
+            <p class="mb-0 font-weight-bold">Teléfono</p>
+            <p class="mb-4"><a href="#">{{ informacion.telefono }}</a></p>
+
+            <p class="mb-0 font-weight-bold">Correo</p>
+            <p class="mb-0"><a href="#">{{ informacion.email }}</a></p>
+
+          </div>
+
+          <div class="p-4 mb-3 bg-white">
+            <h3 class="h5 text-black mb-3">Nosotros</h3>
+            <p>{{ informacion.us }}</p>
+            <p><a href="#" class="btn btn-primary px-4 py-2 text-white">Learn More</a></p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

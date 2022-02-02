@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <header class="container mt-4">
+        <h1 class="display-6 text-center">Bienvenido a Nice Gaming</h1>
+        <p class="lead text-center">Publicaciones.</p>
+        <hr class="my-4">
+    </header>
+{% endblock %}
+
+{% block contenido %}
+<div class="slide-one-item home-slider owl-carousel">
+     <div class="site-cover site-cover-sm same-height overlay" style="height:100vh; background-repeat: no-repeat;
+    background-size: cover;  background-image: url({{ aleatoriPost.imagen_refer.url }});">
+       <div class="container">
+         <div class="row same-height align-items-center">
+           <div class="col-md-12 col-lg-6">
+             <div class="post-entry">
+               <span class="post-category text-white bg-success mb-3">{{ aleatoriPost.Categoria | upper }}</span>
+               <h2 class="mb-4"><a href="{% url 'detallePost' aleatoriPost.id  %}">{{ aleatoriPost.titulo }}</a></h2>
+               <div class="post-meta align-items-center text-left">
+                 <span class="d-inline-block mt-1">Autor: {{ aleatoriPost.autor}}</span>
+                 <span>{{ aleatoriPost.fecha_publicacion }}</span>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   <div class="site-section">
+     <div class="container">
+       <div class="row align-items-stretch retro-layout">
+         <div class="col-md-5">
+           <a href="{% url 'detallePost' post1.id  %}" class="hentry img-1 h-100 gradient" style="background-image: url({{ post1.imagen_refer.url }});">
+             <span class="post-category text-white bg-danger">{{ post1.Categoria |upper }}</span>
+             <div class="text">
+               <h2>{{ post1.titulo }}</h2>
+               <span>{{ post1.fecha_publicacion }}</span>
+             </div>
+           </a>
+         </div>
+         <div class="col-md-7">
+           <a href="{% url 'detallePost' post2.id  %}" class="hentry img-2 v-height mb30 gradient" style="background-image: url({{ post2.imagen_refer.url }});">
+             <span class="post-category text-white bg-success">{{ post2.Categoria |upper }}</span>
+             <div class="text text-sm">
+               <h2>{{ post2.titulo }}</h2>
+               <span>{{ post2.fecha_publicacion }}</span>
+             </div>
+           </a>
+
+           <div class="two-col d-block d-md-flex">
+             <a href="{% url 'detallePost' post3.id  %}" class="hentry v-height img-2 gradient" style="background-image: url({{ post3.imagen_refer.url }});">
+               <span class="post-category text-white bg-primary">{{ post3.Categoria |upper }}</span>
+               <div class="text text-sm">
+                 <h2>{{ post3.titulo }}</h2>
+                 <span>{{ post3.fecha_publicacion }}</span>
+               </div>
+             </a>
+             <a href="#" class="hentry v-height img-2 ml-auto gradient" style="background-image: url({{ post4.imagen_refer.url }});">
+               <span class="post-category text-white bg-warning">{{ post4.Categoria |upper }}</span>
+               <div class="text text-sm">
+                 <h2>{{ post4.titulo }}</h2>
+                 <span>{{ post4.fecha_publicacion }}</span>
+               </div>
+             </a>
+           </div>
+
+         </div>
+       </div>
+
+     </div>
+   </div>
+   <div class="container">
+        <div class="section-heading mb-5 d-flex align-items-center">
+          <h2>{{ postGaming.Categoria | upper }}</h2>
+          <div class="ml-auto"><a href="{% url 'gaming' %}" class="view-all-btn">VER TODOS</a></div>
+        </div>
+        <div class="entry2 mb-5">
+          <a href="#"><img src="{{ postGaming.imagen_refer.url }}" alt="Image" class="img-fluid rounded" style="width: 100%;"></a>
+          <span class="post-category text-white bg-primary mb-3"></span>
+          <h2><a href="#">{{ postGaming.titulo }}</a></h2>
+          <div class="post-meta align-items-center text-left clearfix">
+            <span class="d-inline-block mt-1">POR <a href="#">{{ postGaming.autor }}</a></span>
+            <span>{{ postGaming.fecha_publicacion }}</span>
+          </div>
+          <p>{{ postGaming.descripcion }}</p>
+        </div>
+    </div>
+  </div>
+
+{% endblock %}
