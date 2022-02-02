@@ -3,9 +3,9 @@
   <component name="FacetManager">
     <facet type="django" name="Django">
       <configuration>
-        <option name="rootFolder" value="" />
-        <option name="settingsModule" value="$MODULE_DIR$/nicegaming/config/settings.py" />
-        <option name="manageScript" value="$MODULE_DIR$/nicegaming/manage.py" />
+        <option name="rootFolder" value="$MODULE_DIR$" />
+        <option name="settingsModule" value="config/settings.py" />
+        <option name="manageScript" value="manage.py" />
         <option name="environment" value="&lt;map/&gt;" />
         <option name="doNotUseTestRunner" value="false" />
         <option name="trackFilePattern" value="" />
@@ -17,7 +17,21 @@
     <orderEntry type="jdk" jdkName="Python 3.10 (django)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+  <component name="PyNamespacePackagesService">
+    <option name="namespacePackageFolders">
+      <list>
+        <option value="$MODULE_DIR$/apps/publicaciones" />
+        <option value="$MODULE_DIR$/apps" />
+        <option value="$MODULE_DIR$/config" />
+      </list>
+    </option>
+  </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
+    <option name="TEMPLATE_FOLDERS">
+      <list>
+        <option value="$MODULE_DIR$/apps/publicaciones/templates" />
+      </list>
+    </option>
   </component>
 </module>
