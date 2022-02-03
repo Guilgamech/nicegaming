@@ -1,3 +1,4 @@
+import form as form
 from django.core.checks import messages
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, response
@@ -182,8 +183,9 @@ def contactUs(request, *args, **kwargs):
 
 
 def msgContact(request, *args, **kwargs):
+    formulario = contactoForm(data=request.POST)
+
     if request.method == 'POST':
-        formulario = contactoForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
             return redirect('/')
