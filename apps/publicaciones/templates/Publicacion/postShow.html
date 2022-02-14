@@ -88,10 +88,9 @@
         <div class="col-md-6 col-lg-4">
           <div class="entry2 mb-5">
             <a href="{% url 'detallePost' post3.id  %}"><img src="{{ post3.imagen_refer.url }}" alt="Image" class="img-fluid rounded"></a>
-            <span class="post-category text-white bg-primary mb-3">{{ post3.categoria }}</span>
+            <span class="post-category text-white bg-primary mb-3">{{ post3.Categoria }}</span>
             <h2><a href="{% url 'detallePost' post3.id  %}">{{ post3.titulo }}</a></h2>
             <div class="post-meta align-items-center text-left clearfix">
-              <figure class="author-figure mb-0 mr-3 float-left"><img src="{{ post3.autor.imagen_referencial.url }}" alt="Image" class="img-fluid"></figure>
               <span class="d-inline-block mt-1">POR <a href="#">{{ post3.autor }}</a></span>
               <span>{{ post3.fecha_publicacion }}</span>
             </div>
