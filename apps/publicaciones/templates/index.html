@@ -57,7 +57,7 @@
                  <span>{{ post3.fecha_publicacion }}</span>
                </div>
              </a>
-             <a href="#" class="hentry v-height img-2 ml-auto gradient" style="background-image: url({{ post4.imagen_refer.url }});">
+             <a href="{% url 'detallePost' post4.id  %}" class="hentry v-height img-2 ml-auto gradient" style="background-image: url({{ post4.imagen_refer.url }});">
                <span class="post-category text-white bg-warning">{{ post4.Categoria |upper }}</span>
                <div class="text text-sm">
                  <h2>{{ post4.titulo }}</h2>
@@ -71,22 +71,5 @@
 
      </div>
    </div>
-   <div class="container">
-        <div class="section-heading mb-5 d-flex align-items-center">
-          <h2>{{ postGaming.Categoria | upper }}</h2>
-          <div class="ml-auto"><a href="{% url 'gaming' %}" class="view-all-btn">VER TODOS</a></div>
-        </div>
-        <div class="entry2 mb-5">
-          <a href="{%  url 'detallePost' postGaming.id  %}"><img src="{{ postGaming.imagen_refer.url }}" alt="Image" class="img-fluid rounded" style="width: 100%;"></a>
-          <span class="post-category text-white bg-primary mb-3"></span>
-          <h2><a href="#">{{ postGaming.titulo }}</a></h2>
-          <div class="post-meta align-items-center text-left clearfix">
-            <span class="d-inline-block mt-1">POR <a href="#">{{ postGaming.autor }}</a></span>
-            <span>{{ postGaming.fecha_publicacion }}</span>
-          </div>
-          <p>{{ postGaming.descripcion }}</p>
-        </div>
-    </div>
-  </div>
 
 {% endblock %}
