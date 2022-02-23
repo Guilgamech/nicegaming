@@ -11,11 +11,9 @@ from apps.api.serializers import *
 class Inicio(generics.GenericAPIView):
     def get(self, request):
         url_list = {
-            'list': 'api/list/',
-            'create': 'api/create/',
-            'postdetails': 'api/postdetails/<str:pk>',
-            'update': 'api/updatepost/<str:pk>',
-            'delate': 'api/delatepost/<str:pk>'
+            'list': 'list/',
+            'create': 'createpost/',
+            'postdetails': 'detailpost/<int:id_post>/',
         }
         return Response(url_list)
 
