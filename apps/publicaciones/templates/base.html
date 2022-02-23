@@ -120,7 +120,7 @@
                   <form action=" {% url 'suscribirse' %} " method="post" class="form-footer-subscribe">
                     {% csrf_token %}
                     <div class="form-group d-flex">
-                      <input type="text" class="form-control" name="correo" />
+                      <input type="text" class="form-control" name="correo" placeholder="Correo" />
                       <button type="submit" class="btn btn-primary text-white">
                         SUSCRIBIRSE
                       </button>

@@ -21,8 +21,10 @@ from config import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('apps.publicaciones.urls'))
+    path('', include('apps.publicaciones.urls')),
+    path('api/', include('apps.api.urls'))
 ]
+
 
 if settings.DEBUG:
     urlpatterns += [

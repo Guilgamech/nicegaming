@@ -23,6 +23,7 @@
         <option value="$MODULE_DIR$/apps/publicaciones" />
         <option value="$MODULE_DIR$/apps" />
         <option value="$MODULE_DIR$/config" />
+        <option value="$MODULE_DIR$/apps/api" />
       </list>
     </option>
   </component>
